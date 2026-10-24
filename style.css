@@ -1,4 +1,18 @@
-/* RESET */
+
+/* =========================================
+   1. VARIABEL WARNA DAN PENGATURAN DASAR
+========================================= */
+:root {
+    --cream: #f8f5ef;
+    --white: #ffffff;
+    --brown: #49352a;
+    --coffee: #795548;
+    --sage: #8a9a7b;
+    --light-sage: #e9ede4;
+    --text: #5f5a54;
+    --border: #e8e1d7;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,808 +21,582 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 85px;
+    scroll-padding-top: 95px;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #0b1120;
-    color: #e5e7eb;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--cream);
+    color: var(--text);
     line-height: 1.7;
 }
 
+img {
+    display: block;
+    max-width: 100%;
+}
+
 a {
+    color: inherit;
     text-decoration: none;
 }
 
+.container {
+    width: min(1120px, 90%);
+    margin: 0 auto;
+}
 
-/* NAVBAR */
-.navbar {
-    background-color: #0b1120;
-    padding: 18px 8%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.section {
+    padding: 90px 0;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--brown);
+    line-height: 1.25;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    letter-spacing: -2px;
+}
+
+h2 {
+    font-size: clamp(1.8rem, 3vw, 2.7rem);
+    letter-spacing: -1px;
+}
+
+p {
+    font-size: 0.98rem;
+}
+
+/* =========================================
+   2. HEADER DAN NAVIGASI
+========================================= */
+.header {
     position: sticky;
     top: 0;
-    z-index: 100;
-    border-bottom: 1px solid #1e293b;
+    z-index: 10;
+    background: rgba(248, 245, 239, 0.97);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
 }
 
 .logo {
-    font-size: 28px;
-    font-weight: bold;
-    color: white;
+    color: var(--brown);
+    font-size: 1.45rem;
+    font-weight: 800;
+    letter-spacing: -0.7px;
+    white-space: nowrap;
 }
 
 .logo span {
-    color: #38bdf8;
+    color: var(--sage);
+    font-size: 0.9em;
 }
 
-.navbar ul {
+.nav-links {
     display: flex;
-    list-style: none;
-    gap: 24px;
-}
-
-.navbar ul a {
-    color: #cbd5e1;
-    font-size: 14px;
-    transition: 0.3s;
-}
-
-.navbar ul a:hover {
-    color: #38bdf8;
-}
-
-
-/* HOME */
-.hero {
-    min-height: 90vh;
-    padding: 90px 10%;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 50px;
-    background-color: #0d1324;
+    gap: 28px;
 }
 
-.hero-content {
-    max-width: 620px;
+.nav-links a {
+    font-size: 0.92rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
 }
 
-.greeting,
-.section-label {
-    color: #38bdf8;
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 3px;
-    margin-bottom: 15px;
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--sage);
 }
 
-.hero h1 {
-    font-size: 48px;
-    line-height: 1.2;
-    color: white;
-    margin-bottom: 15px;
+/* =========================================
+   3. TOMBOL DAN LINK
+========================================= */
+.btn {
+    display: inline-block;
+    padding: 13px 24px;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-align: center;
+    transition: 0.2s ease;
 }
 
-.hero h1 span,
-.section-heading h2 span {
-    color: #38bdf8;
+.btn-primary {
+    background: var(--brown);
+    color: var(--white);
 }
 
-.hero h2 {
-    color: #cbd5e1;
-    font-size: 24px;
-    margin-bottom: 20px;
+.btn-primary:hover {
+    background: var(--coffee);
+    transform: translateY(-2px);
 }
 
-.hero-description {
-    color: #94a3b8;
-    max-width: 570px;
-    margin-bottom: 28px;
+.btn-outline {
+    border-color: var(--border);
+    color: var(--brown);
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background: var(--white);
 }
 
 .hero-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 12px;
+    margin-top: 30px;
 }
 
-.btn-primary,
-.btn-outline {
+.text-link {
     display: inline-block;
-    padding: 12px 23px;
-    border-radius: 6px;
-    font-weight: bold;
-    transition: 0.3s;
+    margin-top: 22px;
+    color: var(--coffee);
+    font-weight: 700;
 }
 
-.btn-primary {
-    background-color: #38bdf8;
-    color: #0b1120;
+.text-link:hover {
+    color: var(--sage);
 }
 
-.btn-primary:hover {
-    background-color: #7dd3fc;
-    transform: translateY(-3px);
+/* =========================================
+   4. HERO / BERANDA
+========================================= */
+.eyebrow {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: var(--sage);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 2px;
 }
 
-.btn-outline {
-    border: 1px solid #475569;
-    color: white;
+.hero {
+    min-height: 600px;
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+    align-items: center;
+    gap: 60px;
+    padding-top: 65px;
+    padding-bottom: 75px;
 }
 
-.btn-outline:hover {
-    border-color: #38bdf8;
-    color: #38bdf8;
+.hero h1 span,
+.about h2 span,
+.menu-hero h1 span {
+    color: var(--sage);
 }
 
-.hero-info {
-    display: flex;
-    gap: 45px;
-    margin-top: 40px;
+.hero-text > p {
+    max-width: 480px;
+    margin-top: 22px;
 }
 
-.hero-info h3 {
-    color: #38bdf8;
-    font-size: 25px;
-}
-
-.hero-info p {
-    color: #94a3b8;
-    font-size: 12px;
-}
-
-
-/* FOTO PROFIL */
 .hero-image {
     position: relative;
-    flex-shrink: 0;
-    margin: 20px;
 }
 
-.image-frame {
-    width: 300px;
-    height: 350px;
-    padding: 10px;
-    border: 2px solid #38bdf8;
-    border-radius: 20px;
-    background-color: #172033;
-    box-shadow: 0 0 35px rgba(56, 189, 248, 0.12);
-}
-
-.image-frame img {
+.hero-image > img {
     width: 100%;
-    height: 100%;
+    height: 430px;
     object-fit: cover;
-    border-radius: 12px;
+    border-radius: 160px 160px 12px 12px;
 }
 
-.floating-card {
+.image-note {
     position: absolute;
-    bottom: 20px;
-    left: -30px;
-    background-color: #1e293b;
-    padding: 12px 16px;
-    border-radius: 8px;
-    font-size: 12px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-}
-
-.status-dot {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background-color: #4ade80;
-    border-radius: 50%;
-    margin-right: 7px;
-}
-
-
-/* SECTION UMUM */
-.section {
-    padding: 85px 10%;
-}
-
-.section-heading {
-    text-align: center;
-    margin-bottom: 45px;
-}
-
-.section-heading h2 {
-    color: white;
-    font-size: 34px;
-    margin-bottom: 10px;
-}
-
-.heading-description {
-    color: #94a3b8;
-    margin-top: 10px;
-}
-
-
-/* TENTANG SAYA */
-.about {
-    background-color: #111827;
-}
-
-.about-content {
-    display: flex;
-    align-items: flex-start;
-    gap: 45px;
-}
-
-.about-text {
-    flex: 1;
-}
-
-.about-text h3 {
-    color: white;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.about-text p {
-    color: #94a3b8;
-    margin-bottom: 15px;
-}
-
-.about-card {
-    flex: 1;
-    background-color: #172033;
-    padding: 28px;
-    border: 1px solid #263449;
-    border-radius: 12px;
-}
-
-.about-card h3 {
-    color: #38bdf8;
-    margin-bottom: 20px;
-}
-
-.about-card table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.about-card td {
-    padding: 12px 5px;
-    border-bottom: 1px solid #334155;
-    font-size: 14px;
-}
-
-.about-card td:first-child {
-    color: #94a3b8;
-    width: 40%;
-}
-
-.about-card td:last-child {
-    color: white;
-}
-
-
-/* KEAHLIAN */
-.skills-section {
-    background-color: #0b1120;
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-}
-
-.skill-card {
-    background-color: #111827;
-    padding: 28px 20px;
-    border: 1px solid #263449;
-    border-radius: 12px;
-    text-align: center;
-    transition: 0.3s;
-}
-
-.skill-card:hover {
-    border-color: #38bdf8;
-    transform: translateY(-6px);
-}
-
-.skill-icon {
-    width: 55px;
-    height: 55px;
-    margin: 0 auto 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 12px;
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.html-icon {
-    background-color: #3b201b;
-    color: #fb923c;
-}
-
-.css-icon {
-    background-color: #172554;
-    color: #60a5fa;
-}
-
-.js-icon {
-    background-color: #422006;
-    color: #facc15;
-}
-
-.db-icon {
-    background-color: #164e63;
-    color: #67e8f9;
-}
-
-.skill-card h3 {
-    color: white;
-    margin-bottom: 10px;
-}
-
-.skill-card p {
-    color: #94a3b8;
-    font-size: 13px;
-}
-
-
-/* PROYEK */
-.projects-section {
-    background-color: #111827;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-}
-
-.project-card {
-    background-color: #0b1120;
-    border: 1px solid #263449;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: 0.3s;
-}
-
-.project-card:hover {
-    transform: translateY(-6px);
-    border-color: #38bdf8;
-}
-
-.project-visual {
-    height: 220px;
-    padding: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.project-blue {
-    background-color: #172554;
-}
-
-.project-purple {
-    background-color: #312e81;
-}
-
-.project-green {
-    background-color: #064e3b;
-}
-
-
-/* ILUSTRASI WEBSITE */
-.mock-window {
-    width: 100%;
-    max-width: 260px;
-    height: 150px;
-    border-radius: 8px;
-    background-color: #f8fafc;
-    overflow: hidden;
-}
-
-.mock-top {
-    background-color: #cbd5e1;
-    height: 22px;
+    bottom: 22px;
+    left: -25px;
     display: flex;
     align-items: center;
-    gap: 5px;
-    padding: 0 10px;
-}
-
-.mock-top span {
-    width: 7px;
-    height: 7px;
-    background-color: #64748b;
-    border-radius: 50%;
-}
-
-.mock-content {
-    padding: 18px;
-}
-
-.mock-line {
-    width: 80%;
-    height: 8px;
-    background-color: #2563eb;
-    border-radius: 4px;
-    margin-bottom: 10px;
-}
-
-.mock-line.short {
-    width: 55%;
-    background-color: #cbd5e1;
-}
-
-.mock-boxes {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
-}
-
-.mock-boxes span {
-    height: 35px;
-    flex: 1;
-    background-color: #dbeafe;
-    border-radius: 5px;
-}
-
-
-/* ILUSTRASI NABUNG GEH */
-.finance-preview {
-    width: 100%;
-    max-width: 230px;
-    background-color: #f8fafc;
-    padding: 18px;
+    gap: 12px;
+    padding: 16px 20px;
+    background: var(--white);
     border-radius: 10px;
-    color: #1e293b;
+    box-shadow: 0 10px 35px rgba(73, 53, 42, 0.12);
 }
 
-.preview-label {
-    color: #4f46e5;
-    font-size: 12px;
-    font-weight: bold;
+.image-note > span {
+    font-size: 1.8rem;
 }
 
-.finance-preview h3 {
-    font-size: 16px;
-    margin: 8px 0;
-}
-
-.finance-balance {
-    background-color: #e0e7ff;
-    padding: 10px;
-    border-radius: 6px;
-}
-
-.finance-balance small,
-.finance-balance strong {
+.image-note strong,
+.image-note small {
     display: block;
 }
 
-.finance-balance small {
-    font-size: 10px;
+.image-note strong {
+    color: var(--brown);
+    font-size: 0.9rem;
 }
 
-.finance-balance strong {
-    font-size: 15px;
-    margin-top: 4px;
+.image-note small {
+    color: var(--text);
+    font-size: 0.8rem;
 }
 
-.finance-bars {
-    display: flex;
-    align-items: flex-end;
-    gap: 8px;
-    height: 35px;
-    margin-top: 12px;
+/* =========================================
+   5. TENTANG KAMI
+========================================= */
+.about {
+    background: var(--white);
 }
 
-.finance-bars span {
-    flex: 1;
-    background-color: #818cf8;
-    border-radius: 3px 3px 0 0;
+.about-content {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 80px;
 }
 
-.finance-bars span:nth-child(1) {
-    height: 40%;
+.about-text p + p {
+    margin-top: 16px;
 }
 
-.finance-bars span:nth-child(2) {
-    height: 70%;
-}
-
-.finance-bars span:nth-child(3) {
-    height: 55%;
-}
-
-.finance-bars span:nth-child(4) {
-    height: 100%;
-}
-
-
-/* ILUSTRASI DAILY ACTIVITY */
-.activity-preview {
-    width: 100%;
-    max-width: 240px;
-    padding: 18px;
-    border-radius: 10px;
-    background-color: #ecfdf5;
-    color: #064e3b;
-}
-
-.activity-preview h3 {
-    font-size: 17px;
-}
-
-.activity-preview p {
-    color: #047857;
-    font-size: 12px;
-    margin: 5px 0 10px;
-}
-
-.activity-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 7px 0;
-    font-size: 11px;
-    border-bottom: 1px solid #d1fae5;
-}
-
-.activity-row span {
-    width: 10px;
-    height: 10px;
-    border: 2px solid #10b981;
-    border-radius: 3px;
-}
-
-
-/* INFORMASI PROYEK */
-.project-info {
-    padding: 25px;
-}
-
-.project-category {
-    color: #38bdf8;
-    font-size: 10px;
-    letter-spacing: 1px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.project-info h3 {
-    color: white;
-    font-size: 20px;
-    margin-bottom: 12px;
-}
-
-.project-info > p:not(.project-category) {
-    color: #94a3b8;
-    font-size: 14px;
-    margin-bottom: 20px;
-}
-
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.tags span {
-    background-color: #1e293b;
-    color: #7dd3fc;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 11px;
-}
-
-
-/* PENDIDIKAN */
-.education-section {
-    background-color: #0b1120;
-}
-
-.education-card {
-    max-width: 750px;
-    margin: 0 auto;
-    display: flex;
-    gap: 25px;
-    padding: 30px;
-    background-color: #111827;
-    border: 1px solid #263449;
-    border-radius: 12px;
-}
-
-.education-icon {
-    font-size: 35px;
-}
-
-.education-year {
-    color: #38bdf8;
-    font-size: 13px;
-}
-
-.education-card h3 {
-    color: white;
-    margin: 8px 0;
-}
-
-.education-card p {
-    color: #94a3b8;
-}
-
-.education-detail {
-    margin-top: 12px;
-}
-
-
-/* KONTAK */
-.contact-section {
-    background-color: #111827;
-}
-
-.contact-box {
-    max-width: 700px;
-    margin: 0 auto;
+/* =========================================
+   6. KEUNGGULAN
+========================================= */
+.section-heading {
+    max-width: 650px;
+    margin: 0 auto 42px;
     text-align: center;
 }
 
-.contact-box h2 {
-    color: white;
-    font-size: 34px;
+.section-heading h2 {
+    margin-bottom: 14px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.feature-card {
+    padding: 32px 26px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(73, 53, 42, 0.07);
+}
+
+.feature-icon {
+    margin-bottom: 18px;
+    font-size: 2rem;
+}
+
+.feature-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+/* =========================================
+   7. VISI DAN MISI
+========================================= */
+.vision {
+    padding-top: 0;
+}
+
+.vision-box {
+    padding: 55px;
+    background: var(--light-sage);
+    border-radius: 16px;
+    text-align: center;
+}
+
+.vision-box h2 {
     margin-bottom: 18px;
 }
 
-.contact-box > p:not(.section-label) {
-    color: #94a3b8;
-    margin-bottom: 25px;
+.vision-box p {
+    max-width: 720px;
+    margin: 0 auto;
 }
 
-.contact-details {
-    margin-top: 25px;
-    color: #94a3b8;
-    font-size: 14px;
-}
-
-
-/* FOOTER */
-footer {
-    padding: 25px 10%;
+/* =========================================
+   8. HALAMAN MENU
+========================================= */
+.menu-hero {
+    padding: 85px 0;
+    background: var(--light-sage);
     text-align: center;
-    background-color: #080d18;
-    border-top: 1px solid #1e293b;
-    color: #64748b;
-    font-size: 13px;
 }
 
-
-/* RESPONSIVE TABLET */
-@media (max-width: 1000px) {
-    .navbar {
-        padding: 18px 5%;
-    }
-
-    .navbar ul {
-        gap: 14px;
-    }
-
-    .hero,
-    .section {
-        padding-left: 6%;
-        padding-right: 6%;
-    }
-
-    .hero h1 {
-        font-size: 38px;
-    }
-
-    .image-frame {
-        width: 250px;
-        height: 300px;
-    }
-
-    .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.menu-hero h1 {
+    margin-bottom: 16px;
 }
 
+.menu-section {
+    padding-top: 70px;
+}
 
-/* RESPONSIVE HP */
-@media (max-width: 700px) {
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 55px;
+}
+
+.product-card {
+    overflow: hidden;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.product-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.04);
+}
+
+.product-info {
+    padding: 22px;
+}
+
+.product-info h3 {
+    margin-bottom: 8px;
+}
+
+.product-info p {
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   9. TABEL MENU DAN HARGA
+========================================= */
+.table-heading {
+    margin-top: 30px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+caption {
+    padding: 22px 16px;
+    color: var(--brown);
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--border);
+}
+
+thead {
+    background: var(--brown);
+    color: var(--white);
+}
+
+th {
+    font-size: 0.88rem;
+}
+
+td {
+    font-size: 0.92rem;
+}
+
+tbody tr:nth-child(even) {
+    background: var(--cream);
+}
+
+tbody tr:hover {
+    background: var(--light-sage);
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.menu-note {
+    margin-top: 15px;
+    font-size: 0.85rem;
+}
+
+.back-home {
+    margin-top: 35px;
+    text-align: center;
+}
+
+/* =========================================
+   10. FOOTER
+========================================= */
+.footer {
+    padding-top: 55px;
+    background: var(--brown);
+    color: #eee6de;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.footer-logo {
+    color: var(--white);
+}
+
+.footer-content p {
+    margin-top: 8px;
+    font-size: 0.9rem;
+}
+
+.footer-contact h3 {
+    color: var(--white);
+    font-size: 1.05rem;
+}
+
+.footer-contact a:hover {
+    color: #cbd7bd;
+}
+
+.copyright {
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.copyright p {
+    font-size: 0.82rem;
+    text-align: center;
+}
+
+/* =========================================
+   11. RESPONSIVE TABLET
+========================================= */
+@media (max-width: 800px) {
     .navbar {
+        padding-top: 15px;
+        padding-bottom: 15px;
         flex-direction: column;
-        gap: 12px;
     }
 
-    .navbar ul {
+    .nav-links {
         justify-content: center;
         flex-wrap: wrap;
-        gap: 10px 18px;
-    }
-
-    .navbar ul a {
-        font-size: 12px;
+        gap: 12px 22px;
     }
 
     .hero {
-        flex-direction: column-reverse;
-        text-align: center;
+        grid-template-columns: 1fr;
+        gap: 35px;
         padding-top: 55px;
-        padding-bottom: 55px;
-    }
-
-    .hero-buttons,
-    .hero-info {
-        justify-content: center;
-    }
-
-    .hero h1 {
-        font-size: 34px;
-    }
-
-    .hero h2 {
-        font-size: 20px;
-    }
-
-    .hero-info {
-        gap: 25px;
     }
 
     .hero-image {
-        margin: 10px 0 25px;
+        width: 100%;
+        max-width: 550px;
+        margin: 0 auto;
     }
 
-    .image-frame {
-        width: 230px;
-        height: 270px;
-    }
-
-    .floating-card {
-        left: -10px;
-    }
-
-    .section {
-        padding: 65px 6%;
-    }
-
-    .section-heading h2,
-    .contact-box h2 {
-        font-size: 28px;
+    .hero-image > img {
+        height: 350px;
+        border-radius: 100px 100px 12px 12px;
     }
 
     .about-content {
-        flex-direction: column;
+        grid-template-columns: 1fr;
+        gap: 25px;
     }
 
-    .about-card {
-        width: 100%;
-        padding: 20px;
+    .feature-grid,
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .skills-grid,
-    .projects-grid {
+    .vision-box {
+        padding: 35px 25px;
+    }
+}
+
+/* =========================================
+   12. RESPONSIVE HANDPHONE
+========================================= */
+@media (max-width: 520px) {
+    .section {
+        padding: 60px 0;
+    }
+
+    .nav-links {
+        gap: 10px 15px;
+    }
+
+    .nav-links a {
+        font-size: 0.84rem;
+    }
+
+    .hero {
+        padding-top: 40px;
+    }
+
+    .hero-image > img {
+        height: 290px;
+    }
+
+    .image-note {
+        left: -5px;
+        bottom: 12px;
+        padding: 12px;
+    }
+
+    .feature-grid,
+    .product-grid {
         grid-template-columns: 1fr;
     }
 
-    .project-visual {
-        height: 210px;
+    .product-card img {
+        height: 250px;
     }
 
-    .education-card {
-        padding: 20px;
-        gap: 15px;
+    .footer-content {
+        flex-direction: column;
+        gap: 25px;
     }
 
-    .education-icon {
-        font-size: 25px;
+    th,
+    td {
+        padding: 12px;
+        white-space: nowrap;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
     }
 }
